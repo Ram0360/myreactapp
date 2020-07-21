@@ -1,6 +1,6 @@
 .login-page
 {
-    background-color: #390b5a;
+    background-color: midnightblue;
     height: 360px;
     width: 400px;
     padding: 31px;
@@ -34,4 +34,13 @@
     font-family: fantasy;
     text-align: center;
 
+}
+
+.login-app-page
+{
+    background-image: url("../images/tech.jpg");
+    background-repeat: round;
+    background-size: contain;
+    height: 100%;
+    width: 100%;
 }

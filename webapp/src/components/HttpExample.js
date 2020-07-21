@@ -6,7 +6,13 @@ import { Table } from 'reactstrap';
 export class HttpExample extends Component {
     constructor(props) {
         super(props)
-    
+        
+        if(localStorage.user_login_id === "" || localStorage.user_login_id === undefined)
+        {
+            this.props.history.push('/');
+        }
+
+
         this.state = {
              posts : []
         }
@@ -29,7 +35,7 @@ export class HttpExample extends Component {
         const renderPost = (posts, index) =>
         {
             return(
-                <tr  key={index}>
+                <tr key={index}>
                     <td>{posts.id}</td>
                     <td>{posts.userId}</td>
                     <td>{posts.title}</td>
@@ -50,6 +56,8 @@ export class HttpExample extends Component {
                 <h4>Total number of Posts available : {posts.length}</h4>
 
                 <div className="container">
+                  
+
                     <Table striped  id="http-table">
                             <thead>
                                 <tr>

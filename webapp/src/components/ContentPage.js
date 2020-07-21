@@ -2,6 +2,9 @@ import React from 'react'
 import CustomHeading from './WebComponent'
 
 function ContentPage() {
+
+
+    
     return (
         <div>
             <div className="jumbotron">

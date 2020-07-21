@@ -5,14 +5,24 @@ import ContentPage from './ContentPage'
 import HttpExample from './HttpExample'
 
 class Home extends Component {
+    constructor(props) {
+        super(props)
+
+        if(localStorage.user_login_id === "" || localStorage.user_login_id === undefined)
+        {
+            this.props.history.push('/');
+        }
+    }
+    
+
     render() {
         return (
             <Router>
                 <div className="main-page">
                     <div className="menu">
                         <nav className="navbar navbar-expand-sm" id="main-menu">
-                            <h2 className="menu-title">React Practice Application</h2>
-                          
+                            <h2 className="menu-title">React Practice Application</h2> 
+                            <button className="btn-btn-primary" onClick={(event) => this.doLogout(event)}>Logout</button>                         
                         </nav>                             
                     </div>
                  <div className="row">
@@ -33,9 +43,8 @@ class Home extends Component {
                         </div>
 
                         <div className="col-sm-10" id="content-page">
-                            <Route path="/home/link1" component={HttpExample}/>
-                            <Route path="/home/link2" component={ContentPage}/>
-                
+                            <Route path="/home/link1" exact component={HttpExample}/>
+                            <Route path="/home/link2" exact component={ContentPage}/>                
                         </div>
                 </div>
             </div>
@@ -44,6 +53,14 @@ class Home extends Component {
 
          
         )
+    }
+
+
+    doLogout(event)
+    {
+        localStorage.user_login_id = "";
+        localStorage.user_login_pswd = "";
+        this.props.history.push('/');
     }
 }
 

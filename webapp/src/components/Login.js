@@ -18,7 +18,8 @@ class Login extends Component {
         // if(this.state.isLoggedIn === false)
         // {
             return (
-                <div id="login-page-div">
+                <div className="login-app-page">
+                    <div id="login-page-div" data-testid= "login-div">
                     <div className="panel panel-default">
                    
                         <div className="panel-heading">
@@ -49,31 +50,24 @@ class Login extends Component {
                                 />
                                 </div>
                                 
-                                <div className="form-group form-check">
+                                {/* <div className="form-group form-check">
                                 <label className="form-check-label">
                                     <input className="form-check-input" type="checkbox" name="remember"/> Remember me
                                 </label>
-                                </div>
-                                
+                                </div> */}
+                                <br/>
                                 <button type="submit" className="btn btn-primary"
                                 onClick = {(event) => this.loginuser(event)}
-                                >Submit</button>
+                                >Login</button>
 
                             </form>
                         </div>
                     </div>                                 
                 </div>
-            )
-        // }
-        // else{
-        //     return(
-        //     <div>
-        //         <Main/>
-        //     </div>
-        //     )
-        // }
+                </div>
 
-        
+               
+            )              
     }
 
     
@@ -84,21 +78,20 @@ class Login extends Component {
         console.log(this.state.pass_word);
 
         if(this.state.user_name === 'Ram' && this.state.pass_word ==='admin')
-        {
-            
+        {   
+            this.setState({isLoggedIn:true})
             console.log('Login succesful');
             event.preventDefault(); 
             this.props.history.push('/home');
+            localStorage.setItem("user_login_id",this.state.user_name);
+            localStorage.setItem("user_login_pswd",this.state.pass_word);
         }
         else{
             alert('Enter the correct user id and password');
             this.props.history.push('/');
         }
         
-    }
-
-    
-    
+    }    
 
 }
 
