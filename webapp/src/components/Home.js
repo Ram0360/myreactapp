@@ -3,6 +3,7 @@ import '../css/Home.css'
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import ContentPage from './ContentPage'
 import HttpExample from './HttpExample'
+import ShoppingCart from './ShoppingCart'
 
 class Home extends Component {
     constructor(props) {
@@ -31,20 +32,25 @@ class Home extends Component {
                             
                                 <ul className="navbar-nav">
                                 <li className="nav-item">
-                                      <NavLink to="/home/link1">Http Example</NavLink>
+                                      <NavLink to="/home/httpexample">Http Example</NavLink>
                                 </li>
                                 <li className="nav-item">
-                                    <NavLink to="/home/link2">Custom Element</NavLink>
+                                    <NavLink to="/home/customelement">Custom Element</NavLink>
                                 </li>
-                           
+
+                                <li className="nav-item">
+                                    <NavLink to="/home/shop">Lit Shopping Cart</NavLink>
+                                </li>
+
                                 </ul>
 
                             </nav>
                         </div>
 
                         <div className="col-sm-10" id="content-page">
-                            <Route path="/home/link1" exact component={HttpExample}/>
-                            <Route path="/home/link2" exact component={ContentPage}/>                
+                            <Route path="/home/httpexample" exact component={HttpExample}/>
+                            <Route path="/home/customelement" exact component={ContentPage}/>  
+                            <Route path="/home/shop" exact component={ShoppingCart}/>  
                         </div>
                 </div>
             </div>
